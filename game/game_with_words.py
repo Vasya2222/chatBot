@@ -17,7 +17,7 @@ class FSM_game(StatesGroup):
 async def start_guesses_words(message: Message):
         await FSM_game.guess_the_word.set()
         global random
-        random = (randint(1, 6),)
+        random = (randint(1, 4),)
         await message.answer(text=f'Напишите правильно слово на русском')
         await message.answer(text=f'{game_words(random)}')
 
@@ -26,8 +26,8 @@ async def start_guesses_words(message: Message):
 async def check_correct_word(message: Message, state: FSMContext):
     async with state.proxy() as data:
         data['answer'] = message.text
-    print(random[0], check_word((message.text,))[0][0])
     if check_word((message.text,))[0][0] == random[0]:
+        print(100)
         await message.answer(text="Вы правильно перевели слово")
     await state.finish()
 

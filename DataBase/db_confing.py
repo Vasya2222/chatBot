@@ -15,7 +15,7 @@ def create_table():
 
 async def add_words(state):
     async with state.proxy() as data:
-        cursor.execute('''INSERT OR IGNORE INTO English_word (word_English, translate_word_on_Russian) VALUES(?, ?)''', tuple(data.values()))
+        cursor.execute('''INSERT INTO English_word (word_English, translate_word_on_Russian) VALUES(?, ?)''', tuple(data.values()))
         connect.commit()
 
 

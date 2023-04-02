@@ -1,7 +1,7 @@
 from loader import dp
 from aiogram.types import Message
 from Kb import kb_clicker
-from DataBase import find_words, game_words, check_word
+from DataBase import game_words, check_word
 from random import randint
 
 random = 0
